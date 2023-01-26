@@ -11,6 +11,11 @@ const useStyles = createStyles((theme) => ({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		height: '100%',
+		background: '#111',
+		position: 'absolute',
+		width: '100%',
+		right: '0 ',
+		left: '0',
 	},
 
 	links: {
@@ -98,8 +103,6 @@ export const HeaderBar = ({ links }: HeaderBarProps) => {
 				<Group spacing={5} className={classes.links}>
 					{items}
 				</Group>
-
-				<ActionToggle />
 
 				<Burger
 					opened={opened}
