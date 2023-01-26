@@ -6,32 +6,34 @@ import {
 	MantineProvider,
 	ColorSchemeProvider,
 	ColorScheme,
+	Divider,
+	createStyles,
 } from '@mantine/core';
+import Navbar from '../components/Navbar';
 
 export default function App({ Component, pageProps }: AppProps) {
-	const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-	const toggleColorScheme = (value?: ColorScheme) =>
-		setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+	const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
 
 	return (
 		<>
 			<ColorSchemeProvider
 				colorScheme={colorScheme}
-				toggleColorScheme={toggleColorScheme}
+				toggleColorScheme={() => {}}
 			>
 				<MantineProvider
 					theme={{ colorScheme }}
 					withGlobalStyles
 					withNormalizeCSS
 				>
-					<HeaderBar
+					{/* <HeaderBar
 						links={[
 							{ label: 'Home', link: '/' },
 							{ label: 'Projects', link: '/Projects' },
 							{ label: 'Team', link: '/Team' },
 							{ label: 'Contact', link: '/Contact' },
 						]}
-					/>
+					/> */}
+					<Navbar />
 					<Component {...pageProps} />
 				</MantineProvider>
 			</ColorSchemeProvider>
