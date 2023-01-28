@@ -6,7 +6,7 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles({
 	container: {
-		paddingTop: '8rem',
+		marginTop: '6rem',
 	},
 });
 
