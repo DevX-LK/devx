@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { HeaderBar } from '@/components/Header';
+import { HeaderBar } from '@/components/Header/Header';
+import { FooterLinks } from '@/components/Footer/FooterLinks';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import {
@@ -9,7 +10,7 @@ import {
 } from '@mantine/core';
 
 export default function App({ Component, pageProps }: AppProps) {
-	const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
+	const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
 
 	return (
 		<>
@@ -25,13 +26,57 @@ export default function App({ Component, pageProps }: AppProps) {
 					<HeaderBar
 						links={[
 							{ label: 'Home', link: '/' },
+							{ label: 'About', link: '/About' },
 							{ label: 'Projects', link: '/Projects' },
 							{ label: 'Team', link: '/Team' },
-							{ link: '/Contact', label: 'Contact' },
+							{ label: 'Contact', link: '/Contact' },
 						]}
 					/>
-					{/* <Navbar /> */}
 					<Component {...pageProps} />
+
+					<FooterLinks
+						data={[
+							{
+								title: 'Pages',
+								links: [
+									{ label: 'Home', link: '/' },
+									{ label: 'About', link: '/About' },
+									{ label: 'Projects', link: '/Projects' },
+									{ label: 'Contact', link: '/Contact' },
+								],
+							},
+							{
+								title: 'Projects',
+								links: [
+									{ label: 'DevTalk', link: '/Projects' },
+									{ label: 'Esala', link: '/Projects' },
+									{ label: 'Decentra', link: '/Projects' },
+									{ label: 'Web3 Chat App', link: '/Projects' },
+								],
+							},
+							{
+								title: 'Social',
+								links: [
+									{
+										label: 'Instagram',
+										link: 'https://www.instagram.com/devx.official/',
+									},
+									{
+										label: 'LinkedIn',
+										link: 'https://www.linkedin.com/company/devxlk/',
+									},
+									{
+										label: 'Github',
+										link: 'https://github.com/DevX-LK',
+									},
+									{
+										label: 'YouTube',
+										link: 'https://www.youtube.com/channel/UCLIxBIcAnh0NI95x9VB7-hg',
+									},
+								],
+							},
+						]}
+					/>
 				</MantineProvider>
 			</ColorSchemeProvider>
 		</>
